@@ -1,16 +1,16 @@
-import { Metadata } from 'next'
-import React from 'react'
+import { Metadata } from "next";
+import React from "react";
 
-export const metadata:Metadata = {
-  title:{
-    absolute:'Login Page'
-  }
-}
+export const metadata: Metadata = {
+  title: {
+    absolute: "Login Page",
+  },
+};
 
 function Login() {
-  return (
-    <div>Login</div>
-  )
+  list.map()
+
+  return <div>Login</div>;
 }
 
-export default Login
+export default Login;
