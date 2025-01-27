@@ -8,6 +8,7 @@ function Header() {
     { text: "Home", href: "/" },
     { text: "products", href: "/products" },
     { text: "Product", href: "/products/1" },
+    { text: "About", href: "/about" },
   ];
 
   const pathname = usePathname();
