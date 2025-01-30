@@ -1,9 +1,12 @@
 'use client'
 
-import { sensitiveLog } from "@/utils/serverFuncs";
+import { clientLog } from "@/utils/clientFuncs";
+
+// import { sensitiveLog } from "@/utils/serverFuncs";
 
 function ContactUs() {
-    console.log(sensitiveLog());
+    // console.log(sensitiveLog());
+    clientLog()
 
     return ( 
         <div>

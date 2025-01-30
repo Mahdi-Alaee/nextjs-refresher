@@ -10,6 +10,7 @@
     "srv": "json-server --watch src/database/db.json --port 8000"
   },
   "dependencies": {
+    "client-only": "^0.0.1",
     "next": "15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
