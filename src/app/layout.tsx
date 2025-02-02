@@ -1,6 +1,7 @@
 import Header from "@/components/Header/Header";
 import type { Metadata } from "next";
-import './globals.css';
+import "./globals.css";
+import AppContextProvider from "@/context/AppContext";
 
 export const metadata: Metadata = {
   title: {
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        {children}
+        <AppContextProvider>
+          <Header />
+          {children}
+        </AppContextProvider>
       </body>
     </html>
   );
