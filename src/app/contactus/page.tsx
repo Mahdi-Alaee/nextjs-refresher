@@ -10,7 +10,7 @@ import { useContext } from "react";
 function ContactUs() {
     // console.log(sensitiveLog());
     // clientLog();
-    const {data,setData} = useContext(AppContext)!;
+    const {data} = useContext(AppContext)!;
     console.log(data);
     
     return ( 
