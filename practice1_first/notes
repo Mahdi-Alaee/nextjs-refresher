@@ -1,0 +1,5 @@
+there is one difference between layout and template
+
+layout is fixed and never rerender by page switching
+but
+template rerender by each page switch
