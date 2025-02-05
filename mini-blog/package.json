@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "srv": "json-server ./src/db.json --port 3001"
+    "srv": "json-server --watch ./src/db.json --port 3001"
   },
   "dependencies": {
     "react": "^19.0.0",
