@@ -1,17 +1,19 @@
+import Link from "next/link";
+
 export interface ArticleType {
-    id?: number;
+    id?: string;
     title?: string;
     description?: string;
 }
 
-function ArticleBox({title,description}: ArticleType) {
+function ArticleBox({title,description,id}: ArticleType) {
   return (
-    <div className="shadow-md p-4 max-w-[33%]">
+    <Link href={`/blog/${id}`} className="shadow-md p-4 max-w-[33%]">
       <h2>{title}</h2>
       <p>
         {description}
       </p>
-    </div>
+    </Link>
   );
 }
 
