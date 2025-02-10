@@ -8,7 +8,7 @@ export interface ArticleType {
 
 function ArticleBox({title,description,id}: ArticleType) {
   return (
-    <Link href={`/blog/${id}`} className="shadow-md p-4 max-w-[33%]">
+    <Link href={`/blog/${id}`} className="shadow-md p-4 max-w-[32%]">
       <h2>{title}</h2>
       <p>
         {description}

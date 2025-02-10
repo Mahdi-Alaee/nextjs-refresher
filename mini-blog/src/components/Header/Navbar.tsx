@@ -8,6 +8,7 @@ function Navbar() {
   const [menus] = useState([
     { name: "Home", path: "/" },
     { name: "Blog", path: "/blog" },
+    { name: "Create Blog", path: "/create-blog" },
   ]);
 
   const pathname = usePathname();
