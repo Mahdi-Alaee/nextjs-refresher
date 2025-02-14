@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import ProductBox from "@/components/ProductBox";
+import Link from "next/link";
 
 function Store() {
   const storeData = [
@@ -15,7 +16,6 @@ function Store() {
       title: "product title 2",
       price: 20,
       image:
-        
         "https://img.freepik.com/premium-photo/mom-spending-time-with-kid-beach_23-2150924998.jpg",
     },
     {
@@ -43,7 +43,9 @@ function Store() {
         <div className="grid grid-cols-4 gap-4">
           {/* product box */}
           {storeData.map((product) => (
-            <ProductBox key={product.id} {...product} />
+            <Link key={product.id} href={"/store/" + product.id}>
+              <ProductBox {...product} />
+            </Link>
           ))}
         </div>
       </Container>
