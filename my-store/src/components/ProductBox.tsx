@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-interface ProductBoxProps {
+export interface ProductBoxProps {
+  id:string;
   title: string;
   price: number;
   image: string;
