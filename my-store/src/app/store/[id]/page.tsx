@@ -15,41 +15,43 @@ async function ProductPage({ params }: ProductPageProps) {
   console.log(product);
 
   return (
-    <Container className="pt-12">
-      <div className="grid grid-cols-12 gap-x-4 shadow-md">
-        <div className="col-span-4 bg-black">
-          <div className="w-full">
-            <Image
-              width={10000}
-              height={10000}
-              src={product.image}
-              alt="product Image"
-            />
+    <main>
+      <Container className="pt-12">
+        <div className="grid grid-cols-12 gap-x-4 shadow-md">
+          <div className="col-span-4 bg-black">
+            <div className="w-full">
+              <Image
+                width={10000}
+                height={10000}
+                src={product.image}
+                alt="product Image"
+              />
+            </div>
+          </div>
+          <div className="col-span-8">
+            <h2>{product.title}</h2>
+            <p>
+              u fdhbvi bn etnb tgrnb ujternbju trnjubnr bjnrtj nboju jtrou
+              jtgrjb iotrj biortj irtgjb oitrj bitrj biotrj iborj ngdib hufg grh
+              urthb urtjgbu jruib jr hb
+            </p>
+            <p>
+              price: <span>{product.price}$</span>
+            </p>
+            {/* add to cart */}
+            <div className="flex gap-x-4 items-center">
+              <button className="px-3 py-1 bg-red-500 text-white rounded text-xl">
+                -
+              </button>
+              <span>3</span>
+              <button className="px-3 py-1 bg-blue-500 text-white rounded text-xl">
+                +
+              </button>
+            </div>
           </div>
         </div>
-        <div className="col-span-8">
-          <h2>{product.title}</h2>
-          <p>
-            u fdhbvi bn etnb tgrnb ujternbju trnjubnr bjnrtj nboju jtrou jtgrjb
-            iotrj biortj irtgjb oitrj bitrj biotrj iborj ngdib hufg grh urthb
-            urtjgbu jruib jr hb
-          </p>
-          <p>
-            price: <span>{product.price}$</span>
-          </p>
-          {/* add to cart */}
-          <div className="flex gap-x-4 items-center">
-            <button className="px-3 py-1 bg-red-500 text-white rounded text-xl">
-              -
-            </button>
-            <span>3</span>
-            <button className="px-3 py-1 bg-blue-500 text-white rounded text-xl">
-              +
-            </button>
-          </div>
-        </div>
-      </div>
-    </Container>
+      </Container>
+    </main>
   );
 }
 
