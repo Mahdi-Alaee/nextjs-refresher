@@ -1,3 +1,4 @@
+import AddToCart from "@/components/AddToCart";
 import Container from "@/components/Container";
 import { ProductBoxProps } from "@/components/ProductBox";
 import Image from "next/image";
@@ -39,15 +40,7 @@ async function ProductPage({ params }: ProductPageProps) {
               price: <span>{product.price}$</span>
             </p>
             {/* add to cart */}
-            <div className="flex gap-x-4 items-center">
-              <button className="px-3 py-1 bg-red-500 text-white rounded text-xl">
-                -
-              </button>
-              <span>3</span>
-              <button className="px-3 py-1 bg-blue-500 text-white rounded text-xl">
-                +
-              </button>
-            </div>
+            <AddToCart />
           </div>
         </div>
       </Container>
