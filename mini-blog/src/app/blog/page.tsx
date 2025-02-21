@@ -4,7 +4,6 @@ import Container from "@/components/Container";
 async function Blog() {
   const res = await fetch("http://localhost:3001/blog");
   const blogs = (await res.json()) as ArticleType[];
-  console.log(blogs);
 
   return (
     <Container>

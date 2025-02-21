@@ -9,11 +9,9 @@ interface ProductPageProps {
 
 async function ProductPage({ params }: ProductPageProps) {
   const { id } = await params;
-  console.log(id);
 
   const res = await fetch("http://localhost:3001/products/" + id);
   const product = (await res.json()) as ProductBoxProps;
-  console.log(product);
 
   return (
     <main>
@@ -40,7 +38,7 @@ async function ProductPage({ params }: ProductPageProps) {
               price: <span>{product.price}$</span>
             </p>
             {/* add to cart */}
-            <AddToCart />
+            <AddToCart product={product} />
           </div>
         </div>
       </Container>

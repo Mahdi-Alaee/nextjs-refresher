@@ -5,10 +5,7 @@ import ServerComp from "./components/ServerComp";
 
 function About() {
   // console.log(sensitiveLog());
-  // clientLog();
-
-  console.log('about log');
-  
+  // clientLog();  
 
   return (
     <div>
