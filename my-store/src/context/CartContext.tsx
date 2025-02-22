@@ -13,6 +13,8 @@ export interface CartContextType {
   addToCart: (
     id: string
   ) => Promise<"محصول مورد نظر وجود ندارد" | "همه چی ردیفه">;
+  getProductQty: (id: string) => number;
+  getTotalQty: () => number;
 }
 
 const CartContext = createContext({} as CartContextType);
@@ -45,8 +47,16 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
     return "همه چی ردیفه";
   };
 
+  const getProductQty = (id: string) =>
+    cartItems.find((item) => item.id === id)?.qty || 0;
+
+  const getTotalQty = () =>
+    cartItems.reduce((prev, curr) => prev + curr.qty, 0);
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, getProductQty, getTotalQty }}
+    >
       {children}
     </CartContext.Provider>
   );

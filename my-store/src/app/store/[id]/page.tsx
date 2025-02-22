@@ -38,7 +38,7 @@ async function ProductPage({ params }: ProductPageProps) {
               price: <span>{product.price}$</span>
             </p>
             {/* add to cart */}
-            <AddToCart product={product} />
+            <AddToCart id={product.id} />
           </div>
         </div>
       </Container>

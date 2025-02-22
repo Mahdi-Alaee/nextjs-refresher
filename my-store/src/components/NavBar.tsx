@@ -1,11 +1,13 @@
 "use client";
 
+import { useCartContext } from "@/context/CartContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BiCart } from "react-icons/bi";
 
 function NavBar() {
   const pathname = usePathname();
+  const { getTotalQty } = useCartContext();
 
   const navItems = [
     {
@@ -33,9 +35,15 @@ function NavBar() {
           </Link>
         ))}
       </div>
-      <Link href='/cart' className={`text-lg hover:text-blue-500 hover:scale-105 ${
-              pathname === '/cart' ? "text-blue-500 scale-105" : ""
-            }`}>
+      <Link
+        href="/cart"
+        className={`relative text-lg hover:text-blue-500 hover:scale-105 ${
+          pathname === "/cart" ? "text-blue-500 scale-105" : ""
+        }`}
+      >
+        <span className="absolute text-sm bg-black text-white rounded-full px-1 -top-2 -right-2">
+          {getTotalQty()}
+        </span>
         <BiCart className="text-4xl" />
       </Link>
     </nav>
