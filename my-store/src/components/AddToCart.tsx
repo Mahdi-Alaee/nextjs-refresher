@@ -7,7 +7,8 @@ interface AddToCartProps {
 }
 
 function AddToCart({ id }: AddToCartProps) {
-  const { addToCart,getProductQty } = useCartContext();
+  const { addToCart,getProductQty,removeFromCart,cartItems } = useCartContext();
+console.log(cartItems);
 
 
   const onAdd = async () => {
@@ -15,9 +16,14 @@ function AddToCart({ id }: AddToCartProps) {
     console.log(addToCartResult);
   };
 
+  const onRemove = async () => {
+    const removeFromCartResult = removeFromCart(id);
+    console.log(removeFromCartResult);
+  };
+
   return (
     <div className="flex gap-x-4 items-center">
-      <button className="px-3 py-1 bg-red-500 text-white rounded text-xl">
+      <button className="px-3 py-1 bg-red-500 text-white rounded text-xl" onClick={onRemove}>
         -
       </button>
       <span>{getProductQty(id)}</span>

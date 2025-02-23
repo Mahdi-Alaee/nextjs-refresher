@@ -15,6 +15,7 @@ export interface CartContextType {
   ) => Promise<"محصول مورد نظر وجود ندارد" | "همه چی ردیفه">;
   getProductQty: (id: string) => number;
   getTotalQty: () => number;
+  removeFromCart: (id: string) => "محصول وجود ندارد" | "با موفقیت حذف شد";
 }
 
 const CartContext = createContext({} as CartContextType);
@@ -47,6 +48,23 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
     return "همه چی ردیفه";
   };
 
+  const removeFromCart = (id: string) => {
+    const mainItem = cartItems.find((item) => item.id === id);
+
+    if (!mainItem) return "محصول وجود ندارد";
+
+    setCartItems((items) => {
+      if (mainItem.qty === 1) {
+        return items.filter((item) => item.id !== id);
+      } else
+        return items.map((item) => ({
+          ...item,
+          qty: item.id === id ? item.qty - 1 : item.qty,
+        }));
+    });
+    return "با موفقیت حذف شد";
+  };
+
   const getProductQty = (id: string) =>
     cartItems.find((item) => item.id === id)?.qty || 0;
 
@@ -55,7 +73,13 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, getProductQty, getTotalQty }}
+      value={{
+        cartItems,
+        addToCart,
+        getProductQty,
+        getTotalQty,
+        removeFromCart,
+      }}
     >
       {children}
     </CartContext.Provider>
