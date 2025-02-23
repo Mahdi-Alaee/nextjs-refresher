@@ -1,14 +1,13 @@
-import CartItem from "@/components/CartItem";
+import CartItems from "@/components/CartItems";
 import Container from "@/components/Container";
 
 function Cart() {
   return (
     <main>
       <Container className="mt-12  flex flex-col gap-y-4">
-        {/* cart item */}
-        <CartItem />
-        <CartItem />
-        <CartItem />
+        {/* cart items */}
+        <CartItems />
+       
         <div className="shadow-md border p-4 flex flex-col gap-y-1">
           <p>
             total price: <span>74</span>$
