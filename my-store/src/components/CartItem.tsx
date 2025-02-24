@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ProductBoxProps } from "./ProductBox";
 import AddToCart from "./AddToCart";
 
-interface CartItemProps extends ProductBoxProps {
+export interface CartItemProps extends ProductBoxProps {
   qcy: number;
 }
 
@@ -29,7 +29,7 @@ function CartItem({ image, title, qcy, price, id }: CartItemProps) {
         </p>
         {/* price */}
         <p>
-          price: <span>{price}</span>$
+          price: <span>{price * qcy || ''}</span>$
         </p>
 
         {/* buttons */}

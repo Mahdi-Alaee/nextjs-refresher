@@ -16,6 +16,7 @@ export interface CartContextType {
   getProductQty: (id: string) => number;
   getTotalQty: () => number;
   removeFromCart: (id: string) => "محصول وجود ندارد" | "با موفقیت حذف شد";
+  getTotalPrice: () => Promise<number>;
 }
 
 const CartContext = createContext({} as CartContextType);
@@ -71,6 +72,27 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
   const getTotalQty = () =>
     cartItems.reduce((prev, curr) => prev + curr.qty, 0);
 
+  const getTotalPrice = async () => {
+    const res = await fetch("http://localhost:3001/products");
+    const products = (await res.json()) as ProductBoxProps[];
+
+    const itemsIds = cartItems.map((item) => item.id);
+
+    const cartProducts = products.filter(
+      (prd) => itemsIds.includes(prd.id) && prd
+    );
+
+    const finalCartProducts = cartProducts.map((prd) => ({
+      ...prd,
+      qty: cartItems.find((item) => item.id === prd.id)?.qty as number,
+    }));
+
+    return finalCartProducts.reduce(
+      (prev, curr) => prev + curr.price * curr.qty,
+      0
+    );
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -79,6 +101,7 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
         getProductQty,
         getTotalQty,
         removeFromCart,
+        getTotalPrice,
       }}
     >
       {children}
