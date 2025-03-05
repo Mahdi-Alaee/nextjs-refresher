@@ -1,7 +1,13 @@
 "use client";
 
 import { ProductBoxProps } from "@/components/ProductBox";
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 interface CartItemType {
   id: string;
@@ -92,6 +98,16 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
       0
     );
   };
+
+  useEffect(() => {
+    if (cartItems.length >= 1)
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  useEffect(() => {
+    const localStorageCart = localStorage.getItem("cart");
+    if (localStorageCart) setCartItems(JSON.parse(localStorageCart));
+  }, []);
 
   return (
     <CartContext.Provider
