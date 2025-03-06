@@ -12,12 +12,10 @@ interface StoreProps {
 async function Store({ searchParams }: StoreProps) {
   const page = (await searchParams).page;
 
-  const res = await fetch(
-    `http://localhost:3001/products?_page=${page}&_per_page=2`
-  );
+  const res = await fetch(`http://localhost:3001/products?_page=${page ?? 1}&_per_page=2`);
   const data = (await res.json()) as ProductsList;
-  console.log(data);
-
+  console.log({data});
+  
   return (
     <main>
       <Container>

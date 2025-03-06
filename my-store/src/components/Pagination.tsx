@@ -16,14 +16,25 @@ function Pagination({ pages }: PaginationProps) {
   return (
     <div>
       <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pages}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-      />
+      breakLabel="..."
+      nextLabel="next >"
+      onPageChange={handlePageClick}
+      pageRangeDisplayed={5}
+      pageCount={pages}
+      previousLabel="< previous"
+      renderOnZeroPageCount={null}
+      containerClassName="pagination"
+      pageClassName="page-item"
+      pageLinkClassName="page-link"
+      activeClassName="active"
+      previousClassName="page-item"
+      nextClassName="page-item"
+      previousLinkClassName="page-link"
+      nextLinkClassName="page-link"
+      breakClassName="page-item"
+      breakLinkClassName="page-link"
+      disabledClassName="disabled"
+    />
     </div>
   );
 }
