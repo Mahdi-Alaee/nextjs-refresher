@@ -11,9 +11,9 @@ interface DiscountType {
 
 function CartContent() {
   const { getTotalPrice } = useCartContext();
-  const [totalPrice, setTotalPrice] = useState<number>();
-  const [finalPrice, setFinalPrice] = useState<number>();
-  const [discountValue, setDiscountValue] = useState<number>();
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [finalPrice, setFinalPrice] = useState<number>(0);
+  const [discountValue, setDiscountValue] = useState<number>(0);
   const [code, setCode] = useState<string>("");
 
   useEffect(() => {

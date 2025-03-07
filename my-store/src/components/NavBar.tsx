@@ -4,6 +4,7 @@ import { useCartContext } from "@/context/CartContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BiCart } from "react-icons/bi";
+import Search from "./Search";
 
 function NavBar() {
   const pathname = usePathname();
@@ -35,6 +36,7 @@ function NavBar() {
           </Link>
         ))}
       </div>
+      <Search />
       <Link
         href="/cart"
         className={`relative text-lg hover:text-blue-500 hover:scale-105 ${
