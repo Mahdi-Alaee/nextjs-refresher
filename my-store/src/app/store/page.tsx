@@ -6,16 +6,20 @@ import Pagination from "@/components/Pagination";
 
 interface StoreProps {
   // params: Promise<{}>;
-  searchParams: Promise<{ page: string }>;
+  searchParams: Promise<{ page: string; search?: string }>;
 }
 
 async function Store({ searchParams }: StoreProps) {
-  const page = (await searchParams).page;
+  const { page, search } = await searchParams;
 
-  const res = await fetch(`http://localhost:3001/products?_page=${page ?? 1}&_per_page=2`);
+  const searchSearchParam = search ? `&title=${search}` : "";
+
+  const res = await fetch(
+    `http://localhost:3001/products?_page=${page ?? 1}&_per_page=1` + searchSearchParam
+  );
   const data = (await res.json()) as ProductsList;
-  console.log({data});
-  
+  console.log({ data });
+
   return (
     <main>
       <Container>
