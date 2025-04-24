@@ -65,5 +65,78 @@
       "code": "OFF_3",
       "discount": 30
     }
+  ],
+  "orders": [
+    {
+      "id": "68565802-bb52-45f8-ad09-b502ed50d211",
+      "cartItems": [
+        {
+          "id": "1",
+          "qty": 1
+        },
+        {
+          "id": "2",
+          "qty": 2
+        }
+      ],
+      "totalPrice": 52,
+      "discountValue": 0,
+      "finalPrice": 0
+    },
+    {
+      "id": "e5718d39-9364-4c93-b4b0-ada599bdce6d",
+      "cartItems": [
+        {
+          "id": "1",
+          "qty": 2
+        },
+        {
+          "id": "4",
+          "qty": 1
+        }
+      ],
+      "totalPrice": 73,
+      "discountValue": 7.3,
+      "finalPrice": 65.7
+    },
+    {
+      "id": "9708c961-3705-45fe-bb83-80eda807aa5c",
+      "cartItems": [
+        {
+          "id": "1",
+          "qty": 2
+        },
+        {
+          "id": "3",
+          "qty": 1
+        }
+      ],
+      "totalPrice": 48,
+      "discountValue": 4.8,
+      "finalPrice": 43.2
+    },
+    {
+      "id": "b0aba8a6-1985-4a64-baff-dc5bc617444c",
+      "cartItems": [
+        {
+          "id": "1",
+          "qty": 1
+        },
+        {
+          "id": "2",
+          "qty": 2
+        }
+      ],
+      "totalPrice": 52,
+      "discountValue": 5.2,
+      "finalPrice": 46.8
+    },
+    {
+      "id": "fea9b475-a34c-471f-88cc-47b9833cc4d4",
+      "cartItems": [],
+      "totalPrice": 0,
+      "discountValue": 0,
+      "finalPrice": 0
+    }
   ]
 }

@@ -23,6 +23,7 @@ export interface CartContextType {
   getTotalQty: () => number;
   removeFromCart: (id: string) => "محصول وجود ندارد" | "با موفقیت حذف شد";
   getTotalPrice: () => Promise<number>;
+  clearCart: () => void
 }
 
 const CartContext = createContext({} as CartContextType);
@@ -99,6 +100,8 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
+  const clearCart = () => setCartItems([])
+
   useEffect(() => {
     if (cartItems.length >= 1)
       localStorage.setItem("cart", JSON.stringify(cartItems));
@@ -118,6 +121,7 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
         getTotalQty,
         removeFromCart,
         getTotalPrice,
+        clearCart
       }}
     >
       {children}

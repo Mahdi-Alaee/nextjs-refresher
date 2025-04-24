@@ -1,7 +1,9 @@
 "use client";
 
 import { useCartContext } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 interface DiscountType {
   id: string;
@@ -10,11 +12,12 @@ interface DiscountType {
 }
 
 function CartContent() {
-  const { getTotalPrice } = useCartContext();
+  const { getTotalPrice, cartItems, clearCart } = useCartContext();
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [finalPrice, setFinalPrice] = useState<number>(0);
   const [discountValue, setDiscountValue] = useState<number>(0);
   const [code, setCode] = useState<string>("");
+  const router = useRouter();
 
   useEffect(() => {
     console.log("print");
@@ -31,10 +34,36 @@ function CartContent() {
     const res = await fetch("http://localhost:3001/discounts?code=" + code);
     const [discountData] = (await res.json()) as DiscountType[];
 
-    if (discountData && totalPrice){
-      const disVal = ((totalPrice * discountData.discount) / 100)
+    if (discountData && totalPrice) {
+      const disVal = (totalPrice * discountData.discount) / 100;
       setFinalPrice(totalPrice - disVal);
-      setDiscountValue(disVal)
+      setDiscountValue(disVal);
+    }
+  };
+
+  const onOrder = async () => {
+    const newOrder = {
+      id: crypto.randomUUID(),
+      cartItems,
+      totalPrice,
+      discountValue,
+      finalPrice,
+    };
+
+    const res = await fetch("http://localhost:3001/orders", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newOrder),
+    });
+
+    if (res.status === 201) {
+      toast.success("your order has been registered successfully!");
+      clearCart();
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
     }
   };
 
@@ -65,9 +94,14 @@ function CartContent() {
         </button>
       </div>
 
-      <button className="bg-green-700 text-white rounded hover:bg-green-800 mx-auto text-2xl py-3 px-6">
-        continue
+      <button
+        onClick={onOrder}
+        className="bg-green-700 text-white rounded hover:bg-green-800 mx-auto text-2xl py-3 px-6"
+      >
+        order
       </button>
+
+      <ToastContainer position="top-center" />
     </div>
   );
 }
