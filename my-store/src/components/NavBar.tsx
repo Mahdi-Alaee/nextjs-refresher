@@ -19,6 +19,10 @@ function NavBar() {
       href: "/store",
       menu: "Store",
     },
+    {
+      href: "/dashboard",
+      menu: "Dashboard",
+    },
   ];
 
   return (
