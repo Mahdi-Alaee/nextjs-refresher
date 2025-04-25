@@ -20,12 +20,8 @@ function CartContent() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log("print");
-
     (async () => {
       const result = await getTotalPrice();
-      console.log({ result });
-
       setTotalPrice(result);
     })();
   }, [getTotalPrice]);
@@ -33,7 +29,6 @@ function CartContent() {
   const onApplyDiscount = async () => {
     const res = await fetch("http://localhost:3001/discounts?code=" + code);
     const [discountData] = (await res.json()) as DiscountType[];
-    console.log(discountData);
 
     if (discountData && totalPrice) {
       const disVal = (totalPrice * discountData.discount) / 100;
@@ -43,6 +38,11 @@ function CartContent() {
   };
 
   const onOrder = async () => {
+    if (cartItems.length < 1) {
+      toast.error("There is no product to order!");
+      return false;
+    }
+
     const newOrder = {
       id: crypto.randomUUID(),
       cartItems,
