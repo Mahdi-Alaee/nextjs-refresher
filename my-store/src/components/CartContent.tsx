@@ -33,12 +33,13 @@ function CartContent() {
   const onApplyDiscount = async () => {
     const res = await fetch("http://localhost:3001/discounts?code=" + code);
     const [discountData] = (await res.json()) as DiscountType[];
+    console.log(discountData);
 
     if (discountData && totalPrice) {
       const disVal = (totalPrice * discountData.discount) / 100;
       setFinalPrice(totalPrice - disVal);
       setDiscountValue(disVal);
-    }
+    } else toast.error("Your discount code is not valid!");
   };
 
   const onOrder = async () => {
