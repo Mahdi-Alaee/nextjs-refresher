@@ -32,7 +32,11 @@ function NavBar() {
           <Link
             key={item.menu}
             className={`text-lg hover:text-blue-500 hover:scale-105 ${
-              pathname === item.href ? "text-blue-500 scale-105" : ""
+              item.href === "/" && pathname === "/"
+                ? "text-blue-500 scale-105"
+                : pathname !== "/" && item.href !== '/' && pathname.includes(item.href)
+                ? "text-blue-500 scale-105"
+                : ""
             }`}
             href={item.href}
           >

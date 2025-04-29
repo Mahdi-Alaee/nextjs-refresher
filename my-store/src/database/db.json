@@ -43,10 +43,10 @@
       "image": "https://img.freepik.com/free-photo/woman-beach-with-her-baby-enjoying-sunset_52683-144131.jpg?size=626&ext=jpg"
     },
     {
-      "id": "8",
       "title": "product title 4",
-      "price": 49,
-      "image": "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg"
+      "image": "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg",
+      "price": "50",
+      "id": "8"
     }
   ],
   "discounts": [
