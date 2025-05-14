@@ -68,105 +68,18 @@
   ],
   "orders": [
     {
-      "id": "68565802-bb52-45f8-ad09-b502ed50d211",
+      "id": "26153b4b-cf46-4acc-8ae7-42234cc84b9b",
       "cartItems": [
         {
           "id": "1",
-          "qty": 1
+          "qty": 2
         },
         {
           "id": "2",
-          "qty": 2
-        }
-      ],
-      "totalPrice": 52,
-      "discountValue": 0,
-      "finalPrice": 0
-    },
-    {
-      "id": "e5718d39-9364-4c93-b4b0-ada599bdce6d",
-      "cartItems": [
-        {
-          "id": "1",
-          "qty": 2
-        },
-        {
-          "id": "4",
           "qty": 1
         }
       ],
-      "totalPrice": 73,
-      "discountValue": 7.3,
-      "finalPrice": 65.7
-    },
-    {
-      "id": "9708c961-3705-45fe-bb83-80eda807aa5c",
-      "cartItems": [
-        {
-          "id": "1",
-          "qty": 2
-        },
-        {
-          "id": "3",
-          "qty": 1
-        }
-      ],
-      "totalPrice": 48,
-      "discountValue": 4.8,
-      "finalPrice": 43.2
-    },
-    {
-      "id": "b0aba8a6-1985-4a64-baff-dc5bc617444c",
-      "cartItems": [
-        {
-          "id": "1",
-          "qty": 1
-        },
-        {
-          "id": "2",
-          "qty": 2
-        }
-      ],
-      "totalPrice": 52,
-      "discountValue": 5.2,
-      "finalPrice": 46.8
-    },
-    {
-      "id": "fea9b475-a34c-471f-88cc-47b9833cc4d4",
-      "cartItems": [],
-      "totalPrice": 0,
-      "discountValue": 0,
-      "finalPrice": 0
-    },
-    {
-      "id": "43a88c50-f42e-4cc5-be56-123174b7cd38",
-      "cartItems": [
-        {
-          "id": "1",
-          "qty": 1
-        },
-        {
-          "id": "2",
-          "qty": 2
-        }
-      ],
-      "totalPrice": 52,
-      "discountValue": 5.2,
-      "finalPrice": 46.8
-    },
-    {
-      "id": "b098a5c9-24e4-4ccc-9af8-727ebb06ecf0",
-      "cartItems": [
-        {
-          "id": "1",
-          "qty": 1
-        },
-        {
-          "id": "3",
-          "qty": 2
-        }
-      ],
-      "totalPrice": 60,
+      "totalPrice": 44,
       "discountValue": 0,
       "finalPrice": 0
     }
