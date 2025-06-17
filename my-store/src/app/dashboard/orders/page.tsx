@@ -16,9 +16,9 @@ async function Orders() {
       {/* page title */}
       <h1 className="text-center text-4xl">Products List</h1>
       {/* orders */}
-      <div className="mt-12">
+      <div className="mt-12 grid gap-y-3">
         {ordersData.map((order,index) => (
-          <DashboardOrderBox key={order.id} {...order} index={index} cartItems={order.cartItems.map(item => productsData.find(prd => prd.id === item.id) as ProductBoxProps)} />
+          <DashboardOrderBox key={order.id} {...order} index={index} cartItems={order.cartItems.map(item => productsData.find(prd => prd.id === item.id) as ProductBoxProps)} id={order.id} />
         ))}
       </div>
     </div>
