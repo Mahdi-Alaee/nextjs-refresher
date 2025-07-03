@@ -23,6 +23,7 @@ function CartContent() {
     (async () => {
       const result = await getTotalPrice();
       setTotalPrice(result);
+      setFinalPrice(result);
     })();
   }, [getTotalPrice]);
 
@@ -32,6 +33,8 @@ function CartContent() {
 
     if (discountData && totalPrice) {
       const disVal = (totalPrice * discountData.discount) / 100;
+      console.log(disVal);
+
       setFinalPrice(totalPrice - disVal);
       setDiscountValue(disVal);
     } else toast.error("Your discount code is not valid!");
@@ -88,7 +91,9 @@ function CartContent() {
           onChange={(e) => setCode(e.target.value)}
         />
         <button
-          onClick={onApplyDiscount}
+          onClick={() => {
+            if (code.length > 0) onApplyDiscount();
+          }}
           className="bg-blue-500 text-white px-3 rounded hover:bg-blue-600"
         >
           apply

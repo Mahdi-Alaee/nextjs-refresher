@@ -102,6 +102,26 @@
       "totalPrice": 68,
       "discountValue": 0,
       "finalPrice": 0
+    },
+    {
+      "id": "6f2576db-d244-4492-8f89-2f6949c0e913",
+      "cartItems": [
+        {
+          "id": "1",
+          "qty": 2
+        },
+        {
+          "id": "2",
+          "qty": 1
+        },
+        {
+          "id": "3",
+          "qty": 1
+        }
+      ],
+      "totalPrice": 68,
+      "discountValue": 20.4,
+      "finalPrice": 47.6
     }
   ]
 }
